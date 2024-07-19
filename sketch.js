@@ -264,12 +264,17 @@ function setup() {
   makeDoors();
   reset();
 
-  select('#nb-doors').changed(function () {
-    totalDoors = +this.value();
-    makeDoors();
-    reset();
-    clearStats();
-  });
+  const nbDoorsElement = select('#nb-doors');
+  if (nbDoorsElement) {
+    nbDoorsElement.changed(function () {
+      totalDoors = +this.value();
+      makeDoors();
+      reset();
+      clearStats();
+    });
+  } else {
+    console.error("Element with ID 'nb-doors' not found.");
+  }
 
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
@@ -299,4 +304,3 @@ function setup() {
   });
   select('#speed-slider').hide();
 }
-
