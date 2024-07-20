@@ -15,8 +15,9 @@ body {
   font-weight: 300;
   margin: 0;
   padding: 0;
+  background-color: rgb(108, 240, 193, 0.5)
 }
-
+h5 {padding:0; margin:0;}
 
 @keyframes myPulse {
   0% {
@@ -43,18 +44,16 @@ body {
 
 .header {
   font-size: 62px;
-  font-family: 'peralta'
+  font-family: 'peralta';
+  margin-bottom:0.2em;
+  margin-top:0;
 }
 
 h1,
 h2 {
   color: #333;
   text-align: center;
-  
-}
 
-.explanation {
-  margin-top: 20px;
 }
 
 ul {
@@ -62,9 +61,30 @@ ul {
   margin-left: 20px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.numbers {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 900px;
+  justify-content: space-between;
+  font-size: 42px;
+  font-family: 'peralta';
+  animation: fadeIn 7s;
+  padding-left: 4.2em;
+  padding-right: 4.2em;
+}
 
 .content {
-  /* Styling for the content inside the door */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -135,7 +155,7 @@ button {
   justify-content: space-between;
   width: 900px;
   gap: 1rem;
-  padding-left: 6.5em;
+  padding-left: 8em;
   padding-right: 8em;
   padding-top: 3em;
 }
@@ -173,17 +193,6 @@ button {
     background-image: url(game.png);
     /* After animation ends, remove the background image */
   }
-}
-
-.door-numbers {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.door-numbers img {
-  max-width: 30px;
 }
 
 .door-container {
