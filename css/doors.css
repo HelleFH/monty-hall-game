@@ -1,0 +1,275 @@
+.numbers {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 900px;
+    justify-content: space-between;
+    font-size: 18px;
+    font-family: 'Peralta';
+    animation: fadeIn 7s;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.content img {
+    max-width: 100px;
+    max-height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5rem;
+    opacity: 0;
+    animation: fadeInAndBlink 2s forwards;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#doors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    gap: 1rem;
+    padding: 1em 3em 0 3rem;
+}
+
+.doors-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.doors-container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    height: 19rem;
+    background-image: url('/images/game.gif');
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    animation: playOnce 5s forwards, fadeInImage 1s 5s forwards;
+    z-index: -1;
+    opacity: 1;
+    margin: 0 auto;
+}
+
+.door-container {
+    width: 3.8rem;
+    position: relative;
+}
+
+.door {
+    position: relative;
+    height: 0;
+    padding-top: 210%;
+    padding-bottom: 0;
+    overflow: hidden;
+    will-change: transform;
+    background-position: top center;
+    background-size: cover;
+    animation: delayBackgroundImage 3s forwards;
+    background-image: url('/images/door.svg');
+    cursor: pointer;
+}
+
+.door:active {
+    transform: scale(0.95);
+}
+
+.door-container.revealed>.door {
+    cursor: default;
+    overflow: visible;
+}
+
+.door-container.picked>.content::before {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background-image: url('/images/picked.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+}
+
+#instruction {
+    font-family: 'Play';
+    margin: 3rem 0 0 0;
+    background-color: #F2DAE2;
+    width: 90%;
+    padding: 0 1em;
+    border-radius: 10px;
+    color: black;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    .choices {
+        text-align: center;
+    }
+
+    .pulsate {
+        animation: myPulse 1s ease 0s infinite normal forwards, fadeIn 5s;
+
+    }
+
+    .choices img {
+        max-width: 110px;
+    }
+
+    #no img {
+        max-width: 80px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .numbers {
+        font-size: 42px;
+        padding-left: 11rem;
+        padding-right: 11rem;
+    }
+
+
+    .content img {
+        max-width: 150px;
+        margin-top: 11rem;
+    }
+
+    #doors {
+        width: 900px;
+        padding-left: 8rem;
+        padding-right: 8rem;
+        padding-top: 3rem;
+    }
+
+    .doors-container::before {
+        max-width: 900px;
+        height: 100%;
+        background-size: contain;
+    }
+
+    .door-container {
+        width: 8rem;
+    }
+
+    .door {
+        padding-top: 210%;
+    }
+
+    .door-container.picked>.content::before {
+        width: 4rem;
+        height: 4rem;
+        background-size: contain;
+        position: absolute;
+    }
+
+    #play-again {
+        font-size: 40px;
+        font-weight: 700;
+        padding: 0.7rem;
+    }
+
+    .choices img {
+        max-width: 140px;
+    }
+
+    #no img {
+        max-width: 100px;
+    }
+}
+
+@keyframes playOnce {
+    to {
+        background-image: url('/images/game.png');
+        background-size: contain;
+
+    }
+}
+
+@keyframes delayBackgroundImage {
+    0% {
+        background-image: none;
+    }
+
+    99% {
+        background-image: none;
+    }
+
+    100% {
+        background-image: url('/images/door.svg');
+    }
+}
+
+@keyframes myPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInAndBlink {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
