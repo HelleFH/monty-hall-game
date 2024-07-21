@@ -2,12 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Peralta&display=swap');
 
-
 *,
 *:before,
 *:after {
   box-sizing: border-box;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.04rem;
 }
 
 body {
@@ -15,26 +14,38 @@ body {
   font-weight: 300;
   margin: 0;
   padding: 0;
-  background-color: rgb(108, 240, 193, 0.5)
+  background-color: rgba(108, 240, 193, 0.5);
 }
-h5 {padding:0; margin:0;}
+
+
+main {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width:400px;
+}
+
+h1,
+h2 {
+  font-family: 'Play';
+}
 
 @keyframes myPulse {
   0% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.1);
   }
-
   100% {
     transform: scale(1);
   }
 }
 
 .container {
-  max-width: 800px;
+  max-width: 400px;
   margin: 50px auto;
   background-color: #fff;
   padding: 20px;
@@ -43,17 +54,16 @@ h5 {padding:0; margin:0;}
 }
 
 .header {
-  font-size: 62px;
-  font-family: 'peralta';
-  margin-bottom:0.2em;
-  margin-top:0;
+  font-size: 46px;
+  font-family: 'Peralta';
+  margin-bottom: 0.2rem;
+  margin-top: 0;
 }
 
 h1,
-h2 {
+h2, h3 {
   color: #333;
   text-align: center;
-
 }
 
 ul {
@@ -65,7 +75,6 @@ ul {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
@@ -75,13 +84,14 @@ ul {
   position: absolute;
   display: flex;
   flex-direction: row;
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
   justify-content: space-between;
-  font-size: 42px;
-  font-family: 'peralta';
+  font-size: 18px;
+  font-family: 'Peralta';
   animation: fadeIn 7s;
-  padding-left: 4.2em;
-  padding-right: 4.2em;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .content {
@@ -96,133 +106,111 @@ ul {
   0% {
     opacity: 0;
   }
-
   10% {
     opacity: 1;
   }
-
   20% {
     opacity: 0;
   }
-
   40% {
     opacity: 1;
   }
-
   100% {
     opacity: 1;
   }
-
 }
 
 .content img {
-  max-width: 150px;
+  max-width: 100px;
   max-height: auto;
   display: block;
   margin: 0 auto;
-  margin-top: 3em;
+  margin-top: 5rem;
   opacity: 0;
-  /* Start with opacity 0 */
   animation: fadeInAndBlink 2s forwards;
-  /* Apply fade-in and blink animation over 2 seconds */
 }
 
 .hidden {
   visibility: hidden;
 }
 
-main {
-  width: 100%;
-  max-width: 64rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
 button {
   all: unset;
   cursor: pointer;
-
 }
 
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.9);
+}
 
 
 #doors {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
   gap: 1rem;
-  padding-left: 8em;
-  padding-right: 8em;
-  padding-top: 3em;
-}
 
+  padding: 1em 3em 0 3rem;
+}
 
 .doors-container::before {
   content: "";
   position: absolute;
   width: 100%;
-  max-width: 900px;
-  height: 100%;
+  max-width: 400px;
+  height:19rem;
   background-image: url('game.gif');
-  /* GIF file */
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
   animation: playOnce 5s forwards, fadeInImage 1s 5s forwards;
-  /* Play the animation once for 10 seconds and then fade in the image */
   z-index: -1;
-  /* Ensure the GIF is behind other content */
   opacity: 1;
-  /* Ensure the GIF is initially visible */
   margin: 0 auto;
 }
 
-/* Transition for smooth transition from GIF to static image */
 .doors-container {
   display: flex;
   justify-content: center;
-}
+  width:100%;
 
+}
 
 @keyframes playOnce {
   to {
-    background-image: url(game.png);
-    /* After animation ends, remove the background image */
+    background-image: url('game.png');
+    background-size: contain;
+
   }
 }
 
 .door-container {
-  width: 8rem;
+  width: 3.8rem;
   position: relative;
 }
 
-/* Keyframes for the delay */
 @keyframes delayBackgroundImage {
   0% {
     background-image: none;
-    /* Start with no background image */
   }
-
   99% {
     background-image: none;
-    /* Maintain no background image until near the end */
   }
-
   100% {
     background-image: url('door.svg');
-    /* Set the background image at the end of the animation */
   }
 }
 
-/* The door class with initial styles */
 .door {
   position: relative;
   height: 0;
-  padding-top: 210.0000%;
+  padding-top: 210%;
   padding-bottom: 0;
   overflow: hidden;
   will-change: transform;
@@ -231,47 +219,152 @@ button {
   animation: delayBackgroundImage 3s forwards;
   background-image: url('door.svg');
   cursor: pointer;
-
 }
 
 .door:active {
-  transform: scale(0.95)
+  transform: scale(0.95);
 }
 
-@keyframes pulse {
 
-  /*   Outward Pulse */
+.door-container.revealed>.door {
+  cursor: default;
+  overflow: visible;
+}
+
+.door-container.picked>.content::before {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  background-image: url('picked.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+}
+
+
+@keyframes pulse {
   25% {
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
     transform: scale(1.05);
   }
-
 }
 
 #play-again {
   color: white;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 600;
   text-align: center;
   place-self: center;
-  margin: 0px auto 1em;
+  margin: 0 auto 1rem;
   background-color: rgb(108, 240, 193);
-  padding: 0.7em;
-  border-radius: 2em;
+  padding: 1rem;
+  border-radius: 2rem;
 }
 
-button:hover {
-  transform: scale(1.05)
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
 }
 
-button:active {
-  transform: scale(0.9)
+#instruction {
+  font-family: 'Play';
+  margin: 3rem 0 0 0;
+  background-color: #F2DAE2;
+  width: 90%;
+  padding:0 1em;
+  border-radius: 10px;
+  color: black;
+  min-height: 200px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+.choices {
+  text-align: center;
+}
+.pulsate {
+  animation: myPulse 1s ease 0s infinite normal forwards, fadeIn 5s;
+
 }
 
+.choices img {
+  max-width: 110px;
+}
+#no img {
+  max-width: 80px;
+}
+}
 #stats {
+  background-color: #F0CF6C;
+  padding: 1rem;
+  width: 90%;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+    margin-top: 1rem;
+}
 
-  margin-top: 1em;
+.stats-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  font-weight: 700;
+  width: 130px;
+  white-space: nowrap;
+  border-radius: 7px;
+  background-color: #fff;
+  padding: 0.5rem;
+}
+
+.stats-item p {
+  margin: 0;
+}
+
+.stats-item span {
+  place-self: center;
+}
+
+#stats span {
+  font-size: 3rem;
+}
+
+
+
+.stat-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+#controls {
+  padding: 2rem;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+#controls>select {
+  display: block;
+  margin: 0.5rem 0;
 }
 
 .circular-chart {
@@ -279,6 +372,7 @@ button:active {
   margin: 10px auto;
   max-width: 60%;
   max-height: 250px;
+  margin-bottom:2rem;
 }
 
 .circle-bg {
@@ -310,159 +404,19 @@ button:active {
 
 .percentage {
   fill: black;
-  font-size: 0.5em;
+  font-size: 0.5rem;
   font-weight: 500;
   text-anchor: middle;
 }
 
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4rem;
-}
-
-.door-container.revealed>.door {
-  cursor: default;
-}
-
-.door-container.picked>.content::before {
-  content: '';
-  display: block;
-  width: 4rem;
-  /* Adjust size as needed */
-  height: 4rem;
-  /* Adjust size as needed */
-  background-image: url('picked.gif');
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 50%;
-  left: 49%;
-  transform: translate(-50%, -50%);
-
-}
-
-#instruction {
-  font-family: 'play';
-  margin: 3rem 0 0 0;
-  background-color: #F2DAE2;
-  padding: 1em;
-  width: 80%;
-  border-radius: 10px;
-  color: black;
-  height: 300px;
-}
-
-#instruction>p {
-  font-weight: bold;
-  color: black;
-  font-size: 1.7em;
-  text-align: center;
-
-}
-
-.pulsate {
-  animation: myPulse 1s ease 0s infinite normal forwards;
-}
-
-#instruction>.choices {
-  text-align: center;
-
-}
-
-.choices img {
-  max-width: 150px;
-}
-
-#stats {
-  background-color: #F0CF6C;
-  padding: 1em;
-  width: 80%;
-  border-radius: 10px;
-  color: black;
-  display: flex;
-  flex-direction: column;
-}
-
-.stats-item-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1em;
-
-}
-
-h1,
-h2 {
-  font-family: 'play';
-}
-
-.stats-item {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8rem;
-  font-weight: 700;
-  width: 130px;
-  white-space: nowrap;
-
-  border-radius: 7px;
-  background-color: #fff;
-  padding: 0.5em;
-
-  p {
-    margin: 0;
-  }
-
-  span {
-    place-self: center;
-  }
-}
-
-
-#stats span {
-  font-size: 3em;
-}
-
 .strategies-container {
+  margin-top: 3rem;
+  position: relative;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
-}
-
-.stat-panel {
-  display: flex;
-  flex-direction: column;
-}
-
-
-#controls {
-
-  padding: 2rem;
-  text-align: right;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
-}
-
-#controls h3 {
-  margin: 0;
-  font-size: 1.4rem;
-}
-
-#controls>select {
-  display: block;
-  margin: 0.5rem 0;
-}
-
-.strategies-container {
-  margin-top: 3em;
-  display: flex;
-  position: relative;
 }
 
 .strategies-container::before {
@@ -470,29 +424,101 @@ h2 {
   position: absolute;
   top: 20px;
   bottom: 0;
-  left: 50%;
+  top: 50%;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 3px;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+
+  main {
+
+    max-width:900px;
+  }
+.numbers {
+  font-size: 42px;
+  padding-left: 11rem;
+  padding-right: 11rem;
+}
+
+
+.content img {
+  max-width: 150px;
+  margin-top: 11rem;
+
+}
+
+#doors {
+
+  width: 900px;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 3rem;
+}
+
+.doors-container::before {
+  max-width: 900px;
+  height: 100%;
+  background-size: contain;
+ 
+}
+
+
+@keyframes playOnce {
+  to {
+    background-image: url('game.png');
+  }
+}
+
+.door-container {
+  width: 8rem;
+}
+
+.door {
+
+  padding-top: 210%;
+  
+}
+
+.strategies-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+
+
+
+.door-container.picked>.content::before {
+  width: 4rem;
+  height: 4rem;
+  background-size: contain;
+  position: absolute;
+}
+#play-again {
+  font-size: 40px;
+  font-weight: 700;
+  padding: 0.7rem;
+
+}
+
+.strategies-container::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 0;
   width: 3px;
   background-color: rgba(0, 0, 0, 0.5);
   height: 90%;
 }
 
-#controls>#autorun {}
-
-#controls>#autorun::before {
-  content: '\e9e4';
-  display: inline-block;
-  font-family: 'fontisto';
-  margin-right: 0.5rem;
-  width: 1rem;
+.choices img {
+  max-width: 140px;
 }
-
-#controls>#autorun.on::before {
-  content: '\e9e2';
+#no img {
+  max-width: 100px;
 }
-
-#coding-train {
-  position: absolute;
-  bottom: 0;
-  left: 1rem;
-  width: 24rem;
 }
