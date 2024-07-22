@@ -1,8 +1,8 @@
 // Initialize an array to hold door elements
 let doors = [];
 // Paths to the images used for the car and goat prizes
-const carImage = '/monty-hall-game/images/car.png'; // Adjust path as per your file structure
-const goatImage = '/monty-hall-game/images/goat.png'; // Adjust path as per your file structure
+const carImage = '/images/car.png'; // Adjust path as per your file structure
+const goatImage = '/images/goat.png'; // Adjust path as per your file structure
 
 // Number of doors to create
 let totalDoors = 3;
@@ -113,7 +113,7 @@ function revealDoor() {
   );
 
   // If only one door is left unrevealed
-  if (options.length === doors.length - 2) {
+  if (options.length === doors.length - 1) {
     // Randomly remove one door from options to reveal
     options.splice(Math.floor(Math.random() * options.length), 1);
   }
@@ -239,4 +239,5 @@ function setup() {
   } else {
     console.error("Element with ID 'play-again' not found.");
   }
+
 }
