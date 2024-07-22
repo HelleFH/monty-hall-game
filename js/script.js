@@ -107,13 +107,13 @@ function chooseDoor(hasSwitched = false) {
 
 // Function to reveal a door selected by the host
 function revealDoor() {
-  // Filter doors to show those with goats
+  // Filter doors to show those with goats, excluding the picked door
   const options = doors.filter(
-    (door) => door.prize !== carImage
+    (door) => door.prize !== carImage && door !== pickedDoor
   );
 
   // If only one door is left unrevealed
-  if (options.length === doors.length - 1) {
+  if (options.length === doors.length - 2) {
     // Randomly remove one door from options to reveal
     options.splice(Math.floor(Math.random() * options.length), 1);
   }
@@ -239,5 +239,4 @@ function setup() {
   } else {
     console.error("Element with ID 'play-again' not found.");
   }
-
 }
