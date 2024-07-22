@@ -140,12 +140,12 @@
 
     }
 
-    .choices img {
-        max-width: 110px;
+    #yes img {
+        max-width: 100px;
     }
 
     #no img {
-        max-width: 80px;
+        max-width: 70px;
     }
 }
 
@@ -210,7 +210,7 @@
         padding: 0.7rem;
     }
 
-    .choices img {
+    #yes img {
         max-width: 140px;
     }
 
