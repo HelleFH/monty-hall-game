@@ -57,11 +57,17 @@ h1,
 h2 {
   font-family: 'Play';
 }
-h2 {font-size:2em;}
+
+h2 {
+  font-size: 1.5em;
+}
 
 @media only screen and (min-width: 600px) {
 
   main {
     max-width: 900px;
+  }
+  h2 {
+    font-size: 2em;
   }
 }
