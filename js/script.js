@@ -1,8 +1,8 @@
 // Initialize an array to hold door elements
 let doors = [];
 // Paths to the images used for the car and goat prizes
-const carImage = 'car.png'; // Adjust path as per your file structure
-const goatImage = 'goat.png'; // Adjust path as per your file structure
+const carImage = '/images/car.png'; // Adjust path as per your file structure
+const goatImage = '/images/goat.png'; // Adjust path as per your file structure
 
 // Number of doors to create
 let totalDoors = 3;

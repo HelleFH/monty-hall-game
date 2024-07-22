@@ -113,7 +113,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 4rem;
+    font-size: 4rem; 
 }
 
 #instruction {
@@ -121,7 +121,7 @@
     margin: 3rem 0 0 0;
     background-color: #F2DAE2;
     width: 90%;
-    padding: 0 1em;
+    padding:2em 2em;
     border-radius: 10px;
     color: black;
     min-height: 200px;
