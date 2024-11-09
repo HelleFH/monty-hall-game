@@ -56,7 +56,7 @@
     width: 100%;
     max-width: 400px;
     height: 19rem;
-    background-image: url('/monty-hall-game/images/game.gif');
+    background-image: url('/images/game.gif');
     background-size: contain;
     background-position: top center;
     background-repeat: no-repeat;
